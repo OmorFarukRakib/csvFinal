@@ -303,7 +303,7 @@ td {
 #mainModalContent {
   width: fit-content;
   width: -moz-fit-content;
-  margin-top: 10vh;
+  margin-top: 5vh;
   right: 12vh;
   background: #e6eaed;
   border: none;
