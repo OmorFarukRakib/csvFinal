@@ -1,6 +1,7 @@
 //_______________________________________________________________________________________
 // Implementing pop up model's data for editing
 $(document).ready(function () {
+  var row_index;
   $("#csvRoot").on("click", ".editbtn", function () {
     row_index = $(this).closest("tr").index();
     console.log(`ata akhn click kora button er index: ${row_index}`);
@@ -74,11 +75,8 @@ $(document).ready(function () {
 // For Inserting New Row
 $(document).ready(function () {
   $("#InsertForm").submit(function (event) {
-    // alert("Handler for .submit() called.");
     event.preventDefault();
-    // let time = new Date($.now());
-    // let id =
-    //   time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds();
+
     let TrackID = $("input[name=TrackID]").val();
     let DeviceID = $("input[name=DeviceID]").val();
     let DeviceVendor = $("input[name=DeviceVendor]").val();
@@ -150,32 +148,6 @@ $(document).ready(function () {
   });
 });
 
-// // Adding new File
-// $(document).ready(function () {
-//   $("#ImportAnotherFileButton").click(function () {
-//     localStorage.setItem("newFile", "1");
-//     location.reload();
-//   });
-
-//   if (localStorage.getItem("newFile") === "1") {
-//     $("#startTrackingByFileButton").click();
-//     localStorage.setItem("newFile", "0");
-//     localStorage.setItem("UploadNewFile", "0");
-//   }
-// });
-
-// Add serial No
-// $(document).ready(function () {
-//   //var addSerialNumber = function () {
-//   $("#csvRoot tr").each(function (index) {
-//     $(this)
-//       .find("td:nth-child(1)")
-//       .html(index + 1);
-//   });
-//   // };
-//   //addSerialNumber();
-// });
-
 // Close the main modal through close button
 $("#closeMainModal").on("click", function (e) {
   $("#mainModal").modal("hide");
@@ -200,30 +172,10 @@ $(document).ready(function () {
 // Delete Row starts
 
 $("#csvRoot").on("click", ".deleteRow", function () {
-  // $("#csvRoot").DataTable().destroy();
-  // let table = $("#csvRoot").DataTable({
-  //   scrollY: 400,
-  //   scrollX: true,
-  //   scrollCollapse: true,
-  // });
   var checkstr = confirm("Are you sure you want to delete this row?");
 
   if (checkstr == true) {
-    // do your code
-    //table.row($(this).parents("tr")).remove().draw();
     $("#csvRoot").DataTable().row($(this).parents("tr")).remove().draw();
-
-    // Needs to create new instance of datatable as table has been updated
-    // $("#csvRoot").DataTable().destroy();
-    // $("#csvRoot").DataTable({
-    //   bPaginate: false,
-    //   destroy: true,
-    //   scrollY: 300,
-    //   scrollX: true,
-    //   scrollCollapse: true,
-    //   autoWidth: true,
-    //   responsive: true,
-    // });
 
     // Needs to re calculate the rows number and empty rows number Starts
     let totalData = $("#csvRoot").DataTable().data().count();
@@ -243,16 +195,6 @@ $("#csvRoot").on("click", ".deleteRow", function () {
   } else {
     return false;
   }
-
-  //Serial no Modify
-  // var addSerialNumber = function () {
-  //   $("#csvRoot tr").each(function (index) {
-  //     $(this)
-  //       .find("td:nth-child(1)")
-  //       .html(index + 1);
-  //   });
-  // };
-  // addSerialNumber();
 });
 
 // Delete row ends
@@ -298,9 +240,11 @@ jQuery(document).ready(function () {
     //<i class="fas fa-times"></i>
     //$(".tableexport-caption").prepend(`<button id="clk">X</button>`);
     $(".tableexport-caption").prepend(
-      `<button id="donwload-Modal"><i class="fas fa-times"></i></button>`
+      `<button id="donwload-Modal-Close-btn" type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>`
     );
-    $("#donwload-Modal").on("click", function (e) {
+    $("#donwload-Modal-Close-btn").on("click", function (e) {
       //console.log(`clikkkkkk mamaa`);
       //$("#mainModal").modal("hide");
       var container = $(".tableexport-caption");
