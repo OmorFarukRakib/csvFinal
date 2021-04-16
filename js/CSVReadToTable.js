@@ -99,28 +99,9 @@ const csvFileInput = document.querySelector("#csvFileInput");
 const tableCsv = new TableCsv(tableRoot);
 var flag = 0;
 csvFileInput.addEventListener("change", (e) => {
-  // localStorage.setItem("UploadNewFile", "1");
-
-  // if (localStorage.getItem("UploadNewFile") === "1") {
-  //   $("#ImportFileField").hide();
-  //   $("#ImportAnotherFileField").show();
-  // }
-
   $("#csvRoot").html("");
   $("#csvRoot thead").html("");
-  // $(".dataTables_scrollHead").html('');
-  // $('#csvRoot').destroy();
-  // $('#csvRoot').empty();
 
-  //  if(flag>0){
-  //   $('#csvRoot').destroy();
-  //   $('#csvRoot').empty();
-  //  }else{
-  //    flag++;
-  //  }
-  //  console.log(flag);
-
-  // For excel
   // get the file name, possibly with path (depends on browser)
   var filename = $("#csvFileInput").val();
 
@@ -156,17 +137,6 @@ csvFileInput.addEventListener("change", (e) => {
             autoWidth: false,
             responsive: true,
             scroller: true,
-            // dom: "Bfrtip",
-            // //buttons: ["copy", "csv", "excel", "pdf", "print"],
-            // buttons: [
-            //   {
-            //     extend: "csv",
-            //     title: "AAAAAAAAA",
-            //     exportOptions: {
-            //       columns: [1, 2, 3, 4, 5, 6],
-            //     },
-            //   },
-            // ],
           });
 
           let totalData = $("#csvRoot").DataTable().data().count();
