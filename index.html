@@ -7,15 +7,8 @@
 
     <link rel="stylesheet" href="./libs/bootstrap.min.css" />
     <link rel="stylesheet" href="./libs/dataTables.bootstrap4.min.css" />
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-        crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="myStyle.css" />
+
     <title>CSV Editor with HTML, CSS & JavaScript</title>
 </head>
 
@@ -46,7 +39,9 @@
             <!-- Main content starts from here -->
             <div id="mainModalContent" class="modal-content">
                 <div class="navBarOfTable ">
-                    <button id="closeMainModal"><i class="fas fa-times"></i></button>
+
+                    <button id="closeMainModal"><span aria-hidden="true">&times;</span></button>
+
                     <div class="headerWithCsvName">
 
                         <h4 class="mt-2">&nbsp;&nbsp;CSV/Excelで機器情報アップロード機能</h4>
